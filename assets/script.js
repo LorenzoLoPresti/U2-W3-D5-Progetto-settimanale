@@ -1,6 +1,13 @@
-let cardContainerReference = document.getElementById("card-section");
+// Button e input
+const btnReference = document.getElementById("btn");
+const input = document.getElementById("input");
 
-const cards = function (cover, title, album) {
+// Containers
+const cardContainerReference = document.getElementById("card-section");
+const favSongContainerReference = document.getElementById("favourite-song");
+
+// Elementi html
+const cardsElements = function (cover, title, album) {
   cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card" style="width: 18rem">
                 <img src="${cover}" class="card-img-top" alt="..." />
                 <div class="card-body">
@@ -16,8 +23,27 @@ const cards = function (cover, title, album) {
               </div>`;
 };
 
-const favouriteSong = function () {};
+const favouriteSongElement = function (cover, title, album) {
+  favSongContainerReference.innerHTML += `<div class="col-md-6">
+        <img src="${cover}" class="img-fluid rounded-start" alt="..." />
+   </div>
+  <div class="col-md-6">
+    <div class="card-body">
+      <h5 class="card-title">${title}</h5>
+      <h6>${album}</h6>
+      <p class="card-text">
+        This is a wider card with supporting text below as a
+        natural lead-in to additional content. This content is a
+        little bit longer.
+      </p>
+      <p class="card-text">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </p>
+    </div>
+  </div>`;
+};
 
+// Funzione cards
 const findMusic = function (keyword, index) {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
     .then(function (response) {
@@ -31,17 +57,32 @@ const findMusic = function (keyword, index) {
         let songTitle = element.data[i].title;
         let albumName = element.data[i].album.title;
 
-        cards(cover, songTitle, albumName);
+        cardsElements(cover, songTitle, albumName);
       }
     });
 };
 findMusic("artic monkeys", 4);
 
-const btnReference = document.getElementById("btn");
-const input = document.getElementById("input");
-console.log(input);
+const favSong = function (keyword) {
+  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (element) {
+      let cover = element.data[0].album.cover_big;
+      let songTitle = element.data[0].title;
+      let albumName = element.data[0].album.title;
+
+      console.log(element.data);
+
+      favouriteSongElement(cover, songTitle, albumName);
+    });
+};
+favSong("Giorgio moroder");
 
 btnReference.addEventListener("click", function () {
   cardContainerReference.innerHTML = "";
-  findMusic(input.value, 4);
+  findMusic(input.value, 6);
 });
