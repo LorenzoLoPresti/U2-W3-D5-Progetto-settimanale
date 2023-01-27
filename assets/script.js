@@ -8,6 +8,9 @@ const favSongContainerReference = document.getElementById("favourite-song");
 const carouselImgReference1 = document.getElementById("album-1");
 const carouselImgReference2 = document.getElementById("album-2");
 
+// Arrays
+const rankingAlbum = [];
+
 // Elementi html
 const cardsElements = function (cover, title, album) {
   cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card" style="width: 18rem">
@@ -45,6 +48,11 @@ const favouriteSongElement = function (cover, title, album) {
   </div>`;
 };
 
+// Funzione per raccogliere dati dalle canzoni nell'array rankingAlbum
+const gatheringSongData = function (songTitle, rank, albumName) {
+  rankingAlbum.push({ songTitle: songTitle, rank: rank, albumName: albumName });
+};
+
 // Funzione cards
 const findMusic = function (keyword, index) {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
@@ -58,6 +66,8 @@ const findMusic = function (keyword, index) {
         let cover = element.data[i].album.cover_medium;
         let songTitle = element.data[i].title;
         let albumName = element.data[i].album.title;
+
+        gatheringSongData(songTitle, element.data[i].rank, albumName);
 
         cardsElements(cover, songTitle, albumName);
       }
@@ -84,6 +94,7 @@ const favSong = function (keyword) {
       let songTitle = element.data[0].title;
       let albumName = element.data[0].album.title;
 
+      gatheringSongData(songTitle, element.data[0].rank, albumName);
       favouriteSongElement(cover, songTitle, albumName);
     });
 };
@@ -105,3 +116,19 @@ const carousel = function (keyword, carouselReference, index) {
 };
 carousel("daft punk", carouselImgReference1, 15);
 carousel("curtains", carouselImgReference2, 0);
+
+console.log(rankingAlbum.length);
+
+// rankingAlbum.sort((a, b) => {
+//   if (a.rank < b.rank) {
+//     console.log(a.rank);
+//     return 1;
+//   } else if (a.rank === b.rank) {
+//     console.log(a.rank);
+//     return 0;
+//   }
+//   console.log(a.rank);
+//   return -1;
+// });
+favSong("Giorgio moroder");
+console.log("sorted", rankingAlbum);
