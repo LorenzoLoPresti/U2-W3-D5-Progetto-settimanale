@@ -1,23 +1,11 @@
 let cardContainerReference = document.getElementById("card-section");
 
-const findMusic = function (keyword, index) {
-  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
-    .then(function (response) {
-      if (response.ok) {
-        return response.json();
-      }
-    })
-    .then(function (element) {
-      console.log(element.data);
-      for (let i = 0; i < index; i++) {
-        {
-          cardContainerReference.innerHTML =
-            cardContainerReference.innerHTML +
-            `<div class="col my-3"> <div class="card" style="width: 18rem">
-                <img src="${element.data[i].album.cover_medium}" class="card-img-top" alt="..." />
+const cards = function (cover, title, album) {
+  cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card" style="width: 18rem">
+                <img src="${cover}" class="card-img-top" alt="..." />
                 <div class="card-body">
-                  <h5 class="card-title">${element.data[i].title}</h5>
-                  <h6>${element.data[i].album.title}</h6>
+                  <h5 class="card-title">${title}</h5>
+                  <h6>${album}</h6>
                   <p class="card-text">
                     Some quick example text to build on the card title and make up
                     the bulk of the card's content.
@@ -26,7 +14,24 @@ const findMusic = function (keyword, index) {
                 </div>
               </div>
               </div>`;
-        }
+};
+
+const favouriteSong = function () {};
+
+const findMusic = function (keyword, index) {
+  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (element) {
+      for (let i = 0; i < index; i++) {
+        let cover = element.data[i].album.cover_medium;
+        let songTitle = element.data[i].title;
+        let albumName = element.data[i].album.title;
+
+        cards(cover, songTitle, albumName);
       }
     });
 };
@@ -38,5 +43,5 @@ console.log(input);
 
 btnReference.addEventListener("click", function () {
   cardContainerReference.innerHTML = "";
-  findMusic(input.value, 6);
+  findMusic(input.value, 4);
 });
