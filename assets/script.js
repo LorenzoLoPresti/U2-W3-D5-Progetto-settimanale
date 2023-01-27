@@ -2,9 +2,11 @@
 const btnReference = document.getElementById("btn");
 const input = document.getElementById("input");
 
-// Containers
+// Containers e elementi
 const cardContainerReference = document.getElementById("card-section");
 const favSongContainerReference = document.getElementById("favourite-song");
+const carouselImgReference1 = document.getElementById("album-1");
+const carouselImgReference2 = document.getElementById("album-2");
 
 // Elementi html
 const cardsElements = function (cover, title, album) {
@@ -63,6 +65,13 @@ const findMusic = function (keyword, index) {
 };
 findMusic("artic monkeys", 4);
 
+// Campo di ricerca
+btnReference.addEventListener("click", function () {
+  cardContainerReference.innerHTML = "";
+  findMusic(input.value, 6);
+});
+
+// Funzione canzone preferita
 const favSong = function (keyword) {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
     .then(function (response) {
@@ -75,14 +84,24 @@ const favSong = function (keyword) {
       let songTitle = element.data[0].title;
       let albumName = element.data[0].album.title;
 
-      console.log(element.data);
-
       favouriteSongElement(cover, songTitle, albumName);
     });
 };
 favSong("Giorgio moroder");
 
-btnReference.addEventListener("click", function () {
-  cardContainerReference.innerHTML = "";
-  findMusic(input.value, 6);
-});
+// Carosello
+const carousel = function (keyword, carouselReference, index) {
+  fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${keyword}`)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then(function (element) {
+      let carouselImg = element.data;
+      console.log(carouselImg);
+      carouselReference.src = carouselImg[index].album.cover_big;
+    });
+};
+carousel("daft punk", carouselImgReference1, 15);
+carousel("curtains", carouselImgReference2, 0);
