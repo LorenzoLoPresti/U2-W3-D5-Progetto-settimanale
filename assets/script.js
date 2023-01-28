@@ -80,7 +80,6 @@ findMusic("artic monkeys", 4);
 btnReference.addEventListener("click", function () {
   if (input.value === "") {
     input.classList.add("outline-error");
-    input.focus();
   } else {
     input.classList.remove("outline-error");
     cardContainerReference.innerHTML = "";
