@@ -57,14 +57,12 @@ main {
 }
 
 .song-modal {
-  height: 300px;
-  width: 500px;
   background-color: black;
   padding: 1em;
   position: fixed;
   bottom: 30%;
   left: 35%;
-  animation: modal 1s;
+  animation: modal 0.5s;
   z-index: 3;
 }
 @keyframes modal {

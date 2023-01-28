@@ -78,8 +78,14 @@ findMusic("artic monkeys", 4);
 
 // Campo di ricerca
 btnReference.addEventListener("click", function () {
-  cardContainerReference.innerHTML = "";
-  findMusic(input.value, 6);
+  if (input.value === "") {
+    input.classList.add("outline-error");
+    input.focus();
+  } else {
+    input.classList.remove("outline-error");
+    cardContainerReference.innerHTML = "";
+    findMusic(input.value, 6);
+  }
 });
 
 // Funzione canzone preferita
@@ -207,4 +213,8 @@ overlayRef.addEventListener("click", closeElements);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !modalBodyRef.classList.contains("hidden"))
     closeElements();
+});
+
+input.addEventListener("click", function () {
+  input.classList.remove("outline-error");
 });

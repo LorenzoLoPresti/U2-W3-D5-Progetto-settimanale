@@ -8,6 +8,12 @@
   font-size: 2rem;
 }
 
+.outline-error {
+  outline: 2px solid rgb(210, 24, 24);
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+
 .card-section .card-customize {
   border-radius: 20px;
   border: 1px solid #ffbf0e;
@@ -88,15 +94,13 @@ main #btn:hover {
 }
 
 .song-modal {
-  height: 300px;
-  width: 500px;
   background-color: black;
   padding: 1em;
   position: fixed;
   bottom: 30%;
   left: 35%;
-  -webkit-animation: modal 1s;
-          animation: modal 1s;
+  -webkit-animation: modal 0.5s;
+          animation: modal 0.5s;
   z-index: 3;
 }
 
