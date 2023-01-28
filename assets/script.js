@@ -13,30 +13,30 @@ let rankingAlbum = [];
 
 // Elementi html
 const cardsElements = function (cover, title, album) {
-  cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card" style="width: 18rem">
-                <img src="${cover}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">${title}</h5>
-                  <h6 class="album">${album}</h6>
-                  <p class="card-text">
+  cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card card-customize" style="width: 18rem">
+                <img src="${cover}" class="card-img-top card-img-customize" alt="..." />
+                <div class="card-body bg-dark card-body-customize">
+                  <h5 class="card-title text-warning">${title}</h5>
+                  <h6 class="album text-white">${album}</h6>
+                  <p class="card-text text-white fw-light">
                     Some quick example text to build on the card title and make up
                     the bulk of the card's content.
                   </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="#" class="btn btn-black text-warning">Go somewhere</a>
                 </div>
               </div>
               </div>`;
 };
 
 const favouriteSongElement = function (cover, title, album) {
-  favSongContainerReference.innerHTML = `<div class="col-md-6">
-        <img src="${cover}" class="img-fluid rounded-start" alt="..." />
+  favSongContainerReference.innerHTML = `<div class="col-md-6 bg-dark">
+        <img src="${cover}" class="img-fluid favourite-song-img" alt="..." />
    </div>
-  <div class="col-md-6">
+  <div class="col-md-6 bg-dark card-body-container">
     <div class="card-body">
-      <h5 class="card-title">${title}</h5>
-      <h6>${album}</h6>
-      <p class="card-text">
+      <h5 class="card-title text-warning my-3 text-center">${title}</h5>
+      <h6 class="text-white fst-italic text-center">${album}</h6>
+      <p class="card-text text-warning mt-5 p-3">
         This is a wider card with supporting text below as a
         natural lead-in to additional content. This content is a
         little bit longer.

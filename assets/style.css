@@ -1,11 +1,65 @@
-div .nav-ref {
+.navbar {
+  background-color: rgb(193, 144, 0);
+  box-shadow: 0px 9px 15px 1px rgb(154, 115, 0);
+}
+.navbar .nav-ref {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 2rem;
 }
 
+.card-section .card-customize {
+  border-radius: 20px;
+  border: 1px solid #ffbf0e;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.card-section .card-customize .card-img-customize {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.card-section .card-customize:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0px 0px 15px 1px #b98713;
+}
+.card-section .card-customize .card-body-customize {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.card-section .card-customize .btn {
+  border: 1px solid #ffbf0e;
+}
+.card-section .card-customize .btn:hover {
+  transform: scale(1.1);
+}
+.card-section .card-customize h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  font-style: italic;
+}
+
 body {
-  height: 100vh;
+  height: 100%;
+  background: linear-gradient(180deg, rgb(193, 144, 0) 0%, rgb(117, 89, 0) 3%, rgb(45, 33, 0) 12%, rgb(0, 0, 0) 50%, rgb(20, 20, 0) 88%, rgb(0, 0, 0) 100%);
+}
+
+main #btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #ffbf0e;
+  border: 1px solid black;
+}
+main #btn:hover {
+  transform: scale(1.1);
+}
+
+.marked-text {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .carousel {
@@ -13,9 +67,24 @@ body {
   height: 400px;
 }
 
-.marked-text {
-  font-weight: 600;
+.favourite-song-img {
+  border-radius: 20px;
+  border: 1px solid #ffbf0e;
+}
+
+.card-body-container {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.card-body-container h5 {
   font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.card-body-container h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
 }
 
 .song-modal {
@@ -61,6 +130,20 @@ body {
   top: 0;
   z-index: 1;
   opacity: 0.7;
+}
+
+.artist-rank-btn,
+.open-modal-btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 20px;
+  background-color: #ffbf0e;
+  border: 1px solid black;
+}
+.artist-rank-btn:hover,
+.open-modal-btn:hover {
+  transform: scale(1.1);
 }
 
 .hidden {

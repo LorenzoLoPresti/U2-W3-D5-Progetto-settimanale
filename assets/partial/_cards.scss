@@ -1,0 +1,32 @@
+.card-section {
+  .card-customize {
+    border-radius: 20px;
+    border: 1px solid #ffbf0e;
+    opacity: 0.7;
+    cursor: pointer;
+    .card-img-customize {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      box-shadow: 0px 0px 15px 1px #b98713;
+    }
+    .card-body-customize {
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .btn {
+      border: 1px solid #ffbf0e;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    h6 {
+      @include font($font, 400, 1em);
+      font-style: italic;
+    }
+  }
+}

@@ -1,4 +1,6 @@
-div {
+.navbar {
+  background-color: rgba(193, 144, 0, 1);
+  box-shadow: 0px 9px 15px 1px rgb(154, 115, 0);
   .nav-ref {
     @include font($font, 700, 2rem);
   }
