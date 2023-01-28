@@ -1,4 +1,15 @@
 .carousel {
   width: 400px;
   height: 400px;
+}
+
+.song-modal {
+  height: 300px;
+  width: 300px;
+  background-color: red;
+}
+
+.alert-body {
+  background-color: white;
+  color: black;
 }/*# sourceMappingURL=style.css.map */

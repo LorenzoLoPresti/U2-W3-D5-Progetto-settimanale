@@ -9,7 +9,7 @@ const carouselImgReference1 = document.getElementById("album-1");
 const carouselImgReference2 = document.getElementById("album-2");
 
 // Arrays
-const rankingAlbum = [];
+let rankingAlbum = [];
 
 // Elementi html
 const cardsElements = function (cover, title, album) {
@@ -17,7 +17,7 @@ const cardsElements = function (cover, title, album) {
                 <img src="${cover}" class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">${title}</h5>
-                  <h6>${album}</h6>
+                  <h6 class="album">${album}</h6>
                   <p class="card-text">
                     Some quick example text to build on the card title and make up
                     the bulk of the card's content.
@@ -29,7 +29,7 @@ const cardsElements = function (cover, title, album) {
 };
 
 const favouriteSongElement = function (cover, title, album) {
-  favSongContainerReference.innerHTML += `<div class="col-md-6">
+  favSongContainerReference.innerHTML = `<div class="col-md-6">
         <img src="${cover}" class="img-fluid rounded-start" alt="..." />
    </div>
   <div class="col-md-6">
@@ -71,6 +71,7 @@ const findMusic = function (keyword, index) {
 
         cardsElements(cover, songTitle, albumName);
       }
+      console.log("ciao", rankingAlbum);
     });
 };
 findMusic("artic monkeys", 4);
@@ -132,3 +133,48 @@ console.log(rankingAlbum.length);
 // });
 favSong("Giorgio moroder");
 console.log("sorted", rankingAlbum);
+// const btnDati = document.getElementById("dati");
+// btnDati.addEventListener("click", function () {
+//   console.log(rankingAlbum);
+// });
+
+// ALERT
+
+const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+
+const alert = (message, type) => {
+  const wrapper = document.createElement("div");
+
+  wrapper.innerHTML += [
+    `<div class="alert alert-${type} alert-dismissible alert-body" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+
+  alertPlaceholder.append(wrapper);
+};
+
+const alertTrigger = document.getElementById("liveAlertBtn");
+if (alertTrigger) {
+  alertTrigger.addEventListener("click", () => {
+    // ordino per rank
+    rankingAlbum.sort((a, b) => {
+      if (a.rank < b.rank) {
+        console.log(a.rank);
+        return 1;
+      } else if (a.rank === b.rank) {
+        console.log(a.rank);
+        return 0;
+      }
+      console.log(a.rank);
+      return -1;
+    });
+    for (let i = 0; i < rankingAlbum.length; i++) {
+      alert(
+        `${i + 1}) ${rankingAlbum[i].songTitle}, rank ${rankingAlbum[i].rank}`,
+        "light"
+      );
+    }
+  });
+}

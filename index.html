@@ -12,13 +12,13 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="bg-secondary">
     <!-- INIZIO HEADER -->
     <header>
       <!-- INIZIO NAV -->
-      <nav class="navbar bg-body-tertiary">
+      <nav class="navbar bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand text-white" href="#">
             <img
               src="/docs/5.3/assets/brand/bootstrap-logo.svg"
               alt="Logo"
@@ -91,6 +91,21 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+      </section>
+      <!-- FINE CAROSELLO -->
+
+      <!-- ALERT -->
+      <section>
+        <div id="liveAlertPlaceholder"></div>
+        <button type="button" class="btn btn-primary" id="liveAlertBtn">
+          Alert by Rank
+        </button>
+      </section>
+      <!-- FINE ALERT -->
+
+      <!-- MODALE -->
+      <section>
+        <div class="song-modal"></div>
       </section>
     </main>
   </body>
