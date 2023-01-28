@@ -178,3 +178,33 @@ if (alertTrigger) {
     }
   });
 }
+
+// MODAL
+
+const btnCloseModalRef = document.querySelector(".close-modal-btn");
+const btnOpenModalRef = document.querySelector(".open-modal-btn");
+const modalBodyRef = document.querySelector(".song-modal");
+const overlayRef = document.querySelector(".overlay");
+const modalTextRef = document.querySelector(".modal-text");
+
+const closeElements = function () {
+  modalBodyRef.classList.add("hidden");
+  overlayRef.classList.add("hidden");
+};
+
+btnOpenModalRef.addEventListener("click", function () {
+  console.log("prova", rankingAlbum);
+  modalBodyRef.classList.remove("hidden");
+  overlayRef.classList.remove("hidden");
+  modalTextRef.innerHTML = "";
+  for (let i = 0; i < rankingAlbum.length; i++) {
+    modalTextRef.innerHTML += `<p class="text-white"><span class="marked-text text-warning">${rankingAlbum[i].songTitle}</span>, dall'album <span class="marked-text text-warning">${rankingAlbum[i].albumName}</span></p>`;
+  }
+});
+
+btnCloseModalRef.addEventListener("click", closeElements);
+overlayRef.addEventListener("click", closeElements);
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modalBodyRef.classList.contains("hidden"))
+    closeElements();
+});

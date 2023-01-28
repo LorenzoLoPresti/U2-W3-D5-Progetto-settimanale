@@ -1,0 +1,68 @@
+div .nav-ref {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+body {
+  height: 100vh;
+}
+
+.carousel {
+  width: 400px;
+  height: 400px;
+}
+
+.marked-text {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.song-modal {
+  height: 300px;
+  width: 500px;
+  background-color: black;
+  padding: 1em;
+  position: fixed;
+  bottom: 30%;
+  left: 35%;
+  -webkit-animation: modal 1s;
+          animation: modal 1s;
+  z-index: 3;
+}
+
+@-webkit-keyframes modal {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes modal {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.alert-body {
+  background-color: white;
+  color: black;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

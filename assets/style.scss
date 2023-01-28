@@ -1,0 +1,57 @@
+@import "./partial/variable";
+@import "./partial/nav";
+
+body {
+  height: 100vh;
+}
+
+.carousel {
+  width: 400px;
+  height: 400px;
+}
+
+.marked-text {
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  // color: gold;
+}
+
+.song-modal {
+  height: 300px;
+  width: 500px;
+  background-color: black;
+  padding: 1em;
+  position: fixed;
+  bottom: 30%;
+  left: 35%;
+  animation: modal 1s;
+  z-index: 3;
+}
+@keyframes modal {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.alert-body {
+  background-color: white;
+  color: black;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,5 @@
+div {
+  .nav-ref {
+    @include font($font, 700, 2rem);
+  }
+}
