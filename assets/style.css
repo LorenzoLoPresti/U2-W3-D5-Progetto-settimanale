@@ -1,6 +1,7 @@
 .navbar {
   background-color: rgb(193, 144, 0);
   box-shadow: 0px 9px 15px 1px rgb(154, 115, 0);
+  z-index: 1;
 }
 .navbar .nav-ref {
   font-family: "Poppins", sans-serif;
@@ -8,17 +9,23 @@
   font-size: 2rem;
 }
 
-#input {
+.input-container #input {
+  margin-top: 100px;
   width: 250px;
 }
 @media screen and (min-width: 768px) {
-  #input {
+  .input-container #input {
     width: 350px;
   }
 }
 @media screen and (min-width: 995px) {
-  #input {
+  .input-container #input {
     width: 500px;
+  }
+}
+@media screen and (min-width: 576px) {
+  .input-container #btn {
+    margin-top: 100px;
   }
 }
 
@@ -141,13 +148,30 @@ main #btn:active {
 
 .song-modal {
   background-color: black;
+  width: 300px;
   padding: 1em;
   position: fixed;
   bottom: 30%;
-  left: 35%;
+  left: 0;
   -webkit-animation: modal 0.5s;
           animation: modal 0.5s;
   z-index: 3;
+}
+@media screen and (min-width: 400px) {
+  .song-modal {
+    left: 25%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .song-modal {
+    width: 400px;
+  }
+}
+@media screen and (min-width: 995px) {
+  .song-modal {
+    width: 500px;
+    left: 35%;
+  }
 }
 
 @-webkit-keyframes modal {

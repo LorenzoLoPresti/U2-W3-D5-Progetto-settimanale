@@ -94,12 +94,23 @@ main {
 
 .song-modal {
   background-color: black;
+  width: 300px;
   padding: 1em;
   position: fixed;
   bottom: 30%;
-  left: 35%;
+  left: 0;
   animation: modal 0.5s;
   z-index: 3;
+  @media screen and (min-width: 400px) {
+    left: 25%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
+  @media screen and (min-width: 995px) {
+    width: 500px;
+    left: 35%;
+  }
 }
 @keyframes modal {
   0% {
