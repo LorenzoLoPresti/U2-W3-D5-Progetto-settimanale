@@ -22,8 +22,9 @@ main {
     border-radius: 20px;
     background-color: #ffbf0e;
     border: 1px solid black;
-    &:hover {
-      transform: scale(1.1);
+
+    &:active {
+      transform: scale(0.93);
     }
   }
 }

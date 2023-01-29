@@ -59,8 +59,8 @@ main #btn {
   background-color: #ffbf0e;
   border: 1px solid black;
 }
-main #btn:hover {
-  transform: scale(1.1);
+main #btn:active {
+  transform: scale(0.93);
 }
 
 .marked-text {
