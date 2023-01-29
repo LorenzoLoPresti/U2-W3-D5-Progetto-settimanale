@@ -41,9 +41,15 @@
     <!-- INIZIO MAIN -->
     <main>
       <!-- CARDS -->
-      <div class="d-flex justify-content-center align-items-center mt-5">
-        <input class="w-25 mx-3 p-1 px-4" id="input" type="text" />
-        <button class="p-2 px-4" id="btn">Cerca</button>
+      <div
+        class="d-sm-flex flex-column flex-sm-row justify-content-center align-items-center mt-5"
+      >
+        <input
+          class="d-block ms-3 mx-sm-3 mb-3 mb-sm-0 p-1 px-4"
+          id="input"
+          type="text"
+        />
+        <button class="p-2 px-4 mx-3 mx-sm-0" id="btn">Cerca</button>
       </div>
       <section class="container my-5 card-section">
         <div class="row flex-start" id="card-section"></div>
@@ -51,9 +57,9 @@
       <!-- FINE CARDS -->
 
       <!-- CANZONE PREFERITA -->
-      <section class="container my-5">
+      <section class="container my-5 favourite-song-container">
         <div class="row">
-          <div class="col">
+          <div class="col-12">
             <div class="card mb-3 favourite-song-img">
               <div class="row g-0" id="favourite-song"></div>
             </div>
@@ -64,7 +70,7 @@
 
       <!-- INIZIO CAROSELLO -->
 
-      <section class="d-flex justify-content-center my-5">
+      <section class="d-flex justify-content-center my-5 carousel-background">
         <div
           id="carouselExampleAutoplaying"
           class="carousel slide"
@@ -100,26 +106,32 @@
       </section>
       <!-- FINE CAROSELLO -->
 
-      <!-- ALERT -->
-      <section class="container">
-        <div id="liveAlertPlaceholder"></div>
-        <button
-          type="button"
-          class="btn artist-rank-btn px-4 p-2"
-          id="liveAlertBtn"
-        >
-          Ranks
-        </button>
-      </section>
-      <!-- FINE ALERT -->
+      <section class="d-flex container my-5">
+        <div class="row">
+          <!-- ALERT -->
+          <div class="col">
+            <div id="liveAlertPlaceholder"></div>
+            <button
+              type="button"
+              class="btn artist-rank-btn px-4 p-2"
+              id="liveAlertBtn"
+            >
+              Ranks
+            </button>
+          </div>
+          <!-- FINE ALERT -->
 
-      <!-- MODALE -->
-      <section class="container">
-        <div class="song-modal hidden">
-          <div><button class="close-modal-btn">chiudi</button></div>
-          <div class="modal-text"></div>
+          <!-- MODALE -->
+          <div class="col">
+            <div class="song-modal hidden">
+              <div class="d-flex justify-content-end">
+                <button class="close-modal-btn p-2 px-4 mb-3">Chiudi</button>
+              </div>
+              <div class="modal-text"></div>
+            </div>
+            <button class="open-modal-btn px-4 p-2">Raccolta</button>
+          </div>
         </div>
-        <button class="open-modal-btn px-4 p-2">Cliccami</button>
       </section>
     </main>
 

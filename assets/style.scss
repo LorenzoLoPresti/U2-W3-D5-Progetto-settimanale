@@ -46,14 +46,49 @@ main {
   border: 1px solid #ffbf0e;
 }
 
-.card-body-container {
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  h5 {
-    @include font($font, 700, 2rem);
+.card-section {
+  @media screen and (max-width: 995) {
+    transform: scale(0.9);
   }
-  h6 {
-    @include font($font, 300, 1.3em);
+  @media screen and (max-width: 768) {
+    width: 200px;
+  }
+  .card-body-container {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    h5 {
+      @include font($font, 700, 2rem);
+    }
+    h6 {
+      @include font($font, 300, 1.3em);
+    }
+  }
+}
+
+.favourite-song-container {
+  @media screen and (max-width: 330px) {
+    display: none;
+  }
+  @media screen and (max-width: 576px) {
+    transform: scale(0.85);
+  }
+  @media screen and (max-width: 768px) {
+    width: 350px;
+  }
+}
+
+.carousel-background {
+  @media screen and (min-width: 400px) {
+    background: linear-gradient(
+      90deg,
+      rgba(193, 144, 0, 1) 0%,
+      rgba(117, 89, 0, 1) 14%,
+      rgba(45, 33, 0, 1) 37%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(45, 33, 0, 1) 59%,
+      rgba(117, 89, 0, 1) 85%,
+      rgba(193, 144, 0, 1) 100%
+    );
   }
 }
 
@@ -92,7 +127,8 @@ main {
 }
 
 .artist-rank-btn,
-.open-modal-btn {
+.open-modal-btn,
+.close-modal-btn {
   @include font($font, 600, 1rem);
   border-radius: 20px;
   background-color: #ffbf0e;

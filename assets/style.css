@@ -8,6 +8,20 @@
   font-size: 2rem;
 }
 
+#input {
+  width: 250px;
+}
+@media screen and (min-width: 768px) {
+  #input {
+    width: 350px;
+  }
+}
+@media screen and (min-width: 995px) {
+  #input {
+    width: 500px;
+  }
+}
+
 .outline-error {
   outline: 2px solid rgb(210, 24, 24);
   outline-offset: 2px;
@@ -78,19 +92,51 @@ main #btn:active {
   border: 1px solid #ffbf0e;
 }
 
-.card-body-container {
+@media screen and (max-width: 995) {
+  .card-section {
+    transform: scale(0.9);
+  }
+}
+@media screen and (max-width: 768) {
+  .card-section {
+    width: 200px;
+  }
+}
+.card-section .card-body-container {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-.card-body-container h5 {
+.card-section .card-body-container h5 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 2rem;
 }
-.card-body-container h6 {
+.card-section .card-body-container h6 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 1.3em;
+}
+
+@media screen and (max-width: 330px) {
+  .favourite-song-container {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .favourite-song-container {
+    transform: scale(0.85);
+  }
+}
+@media screen and (max-width: 768px) {
+  .favourite-song-container {
+    width: 350px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  .carousel-background {
+    background: linear-gradient(90deg, rgb(193, 144, 0) 0%, rgb(117, 89, 0) 14%, rgb(45, 33, 0) 37%, rgb(0, 0, 0) 50%, rgb(45, 33, 0) 59%, rgb(117, 89, 0) 85%, rgb(193, 144, 0) 100%);
+  }
 }
 
 .song-modal {
@@ -137,7 +183,8 @@ main #btn:active {
 }
 
 .artist-rank-btn,
-.open-modal-btn {
+.open-modal-btn,
+.close-modal-btn {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -146,7 +193,8 @@ main #btn:active {
   border: 1px solid black;
 }
 .artist-rank-btn:hover,
-.open-modal-btn:hover {
+.open-modal-btn:hover,
+.close-modal-btn:hover {
   transform: scale(1.1);
 }
 

@@ -13,7 +13,7 @@ let rankingAlbum = [];
 
 // Elementi html
 const cardsElements = function (cover, title, album) {
-  cardContainerReference.innerHTML += `<div class="col my-3"> <div class="card card-customize" style="width: 18rem">
+  cardContainerReference.innerHTML += `<div class="col-12 d-flex justify-content-center col-md-6 col-lg-4 col-xxl-3 my-3"> <div class="card card-customize" style="width: 17rem">
                 <img src="${cover}" class="card-img-top card-img-customize" alt="..." />
                 <div class="card-body bg-dark card-body-customize">
                   <h5 class="card-title text-warning">${title}</h5>
@@ -29,21 +29,19 @@ const cardsElements = function (cover, title, album) {
 };
 
 const favouriteSongElement = function (cover, title, album) {
-  favSongContainerReference.innerHTML = `<div class="col-md-6 bg-dark">
-        <img src="${cover}" class="img-fluid favourite-song-img" alt="..." />
+  favSongContainerReference.innerHTML = `<div class="col-md-6 col-lg-4 bg-dark">
+        <img src="${cover}" class="img-fluid favourite-song-img w-100" alt="..." />
    </div>
-  <div class="col-md-6 bg-dark card-body-container">
+  <div class="col-md-6 col-lg-8 bg-dark card-body-container">
     <div class="card-body">
-      <h5 class="card-title text-warning my-3 text-center">${title}</h5>
-      <h6 class="text-white fst-italic text-center">${album}</h6>
-      <p class="card-text text-warning mt-5 p-3">
+      <h5 class="card-title text-warning my-sm-3 text-center fs-2">${title}</h5>
+      <h6 class="text-white fst-italic text-center fs-4">${album}</h6>
+      <p class="card-text text-warning mt-sm-5 p-3 mx-lg-5">
         This is a wider card with supporting text below as a
         natural lead-in to additional content. This content is a
         little bit longer.
       </p>
-      <p class="card-text">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </p>
+      
     </div>
   </div>`;
 };
@@ -62,11 +60,12 @@ const findMusic = function (keyword, index) {
       }
     })
     .then(function (element) {
+      console.log("findMusic", element);
+      rankingAlbum = [];
       for (let i = 0; i < index; i++) {
         let cover = element.data[i].album.cover_medium;
         let songTitle = element.data[i].title;
         let albumName = element.data[i].album.title;
-
         gatheringSongData(songTitle, element.data[i].rank, albumName);
 
         cardsElements(cover, songTitle, albumName);
@@ -118,30 +117,18 @@ const carousel = function (keyword, carouselReference, index) {
       let carouselImg = element.data;
       console.log(carouselImg);
       carouselReference.src = carouselImg[index].album.cover_big;
+      console.log("cisossdds", element.data);
+      gatheringSongData(
+        element.data[index].title,
+        element.data[index].rank,
+        element.data[index].album.title
+      );
     });
 };
 carousel("daft punk", carouselImgReference1, 15);
 carousel("curtains", carouselImgReference2, 0);
 
 console.log(rankingAlbum.length);
-
-// rankingAlbum.sort((a, b) => {
-//   if (a.rank < b.rank) {
-//     console.log(a.rank);
-//     return 1;
-//   } else if (a.rank === b.rank) {
-//     console.log(a.rank);
-//     return 0;
-//   }
-//   console.log(a.rank);
-//   return -1;
-// });
-favSong("Giorgio moroder");
-console.log("sorted", rankingAlbum);
-// const btnDati = document.getElementById("dati");
-// btnDati.addEventListener("click", function () {
-//   console.log(rankingAlbum);
-// });
 
 // ALERT
 
@@ -198,12 +185,13 @@ const closeElements = function () {
 };
 
 btnOpenModalRef.addEventListener("click", function () {
-  console.log("prova", rankingAlbum);
   modalBodyRef.classList.remove("hidden");
   overlayRef.classList.remove("hidden");
   modalTextRef.innerHTML = "";
   for (let i = 0; i < rankingAlbum.length; i++) {
-    modalTextRef.innerHTML += `<p class="text-white"><span class="marked-text text-warning">${rankingAlbum[i].songTitle}</span>, dall'album <span class="marked-text text-warning">${rankingAlbum[i].albumName}</span></p>`;
+    if (rankingAlbum[i]?.albumName !== rankingAlbum[i + 1]?.albumName) {
+      modalTextRef.innerHTML += `<p class="text-white"><span class="marked-text text-warning">${rankingAlbum[i].songTitle}</span>, dall'album <span class="marked-text text-warning">${rankingAlbum[i].albumName}</span></p>`;
+    }
   }
 });
 
